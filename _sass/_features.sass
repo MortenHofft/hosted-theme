@@ -1,0 +1,128 @@
+$card-width: 360px !default
+$card-gap: 12px !default
+$card-double-size: ($card-width * 2 + $card-gap * 2)
+
+.feature-img
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  position: relative
+  &:hover
+    .feature-img-license
+      background: rgba(0,0,0,.5)
+      opacity: 1
+    .feature-img-license-text
+      display: block
+.feature-img-license
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  display: flex
+  opacity: 0.5
+  font-size: 12px
+  color: white
+  .feature-img-license-text
+    display: none
+  >div
+    flex: 0 0 auto
+    padding: 3px
+.feature-content
+  @extend .content
+  &--centered
+    text-align: center
+.feature-pre-title
+  margin-bottom: .5em
+  font-weight: 500
+  font-size: 90%
+.feature-cta
+  margin-top: 2rem
+
+.card-area
+  background: #edf3f3
+
+.features
+  @extend .container
+  @extend .is-fluid
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  padding: 48px 0
+  margin: auto
+
+.feature
+  flex: 0 0 $card-width
+  margin: $card-gap
+  overflow: hidden
+  box-shadow: 0px 0px 5px rgba(0,0,0,.1)
+  border: 1px solid #ddd
+  background: #fff
+  .feature-img
+    height: 0
+    width: 100%
+    padding-bottom: 60%
+  .feature-content
+    padding: 24px 24px 48px 24px
+  .feature-description
+    color: #5e5e5e
+  .feature-title
+    margin-top: 0!important
+
+.feature--double-width
+  display: flex
+  flex: 0 0 $card-double-size
+  .feature-img
+    max-height: none
+    height: 100%
+  >div
+    flex: 0 0 50%
+
+.features
+  .feature:nth-child(odd):last-of-type
+    @extend .feature--double-width
+
+.features.has-4-elements, .features.has-2-elements
+  .feature:nth-child(1), .feature:nth-child(4)
+    @extend .feature--double-width
+
+@media screen and (max-width: 710px + $container-offset)
+  .feature--double-width
+    flex-direction: column
+    flex: 0 0 350px
+    >div:first-of-type
+      height: 0
+      width: 100%
+      padding-bottom: 60%
+    
+
+
+
+.splitBanner
+  display: flex
+  max-width: 2000px
+  margin: auto
+  >div
+    flex: 0 0 50%
+  .feature-content
+    padding: 5rem
+    font-size: 120%
+  &--reverse
+    flex-direction: row-reverse
+  .feature-title
+    margin-top: .5em
+
++until($desktop)
+  .splitBanner
+    flex-direction: column
+    >div
+      flex: 0 0 100%
+    .feature-img
+      display: none
+
+
+.textBanner
+  >div
+    max-width: 45rem
+    padding: 5rem 1rem
+    margin: 0 auto
+    font-size: 120%

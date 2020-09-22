@@ -1,0 +1,30 @@
+{% if include.content.img %}
+<div class="feature-img" style="background-image: url('{{ include.content.img }}')">
+  {% if include.content.imageLicense %}
+  <div class="feature-img-license">
+     <div>© </div>
+     <div class="feature-img-license-text">{{ include.content.imageLicense | markdownify }}</div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+<div class="feature-content {% if include.content.center %} feature-content--centered {% endif %}">
+  {% if include.content.preTitle %}
+  <div class="feature-pre-title">{{ include.content.preTitle }}</div>
+  {% endif %}
+  {% if include.content.title %}
+  <h3  class="feature-title">{{ include.content.title }}</h3>
+  {% endif %}
+  {% if include.content.description %}
+  <div class="feature-description">
+    {{ include.content.description | markdownify }}
+  </div>
+  {% endif %}
+  {% if include.content.cta %}
+  <div class="feature-cta">
+    {% for cta in include.content.cta %}
+    <a href="{{ cta.href | relative_url }}" class="button is-outlined">{{ cta.text }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

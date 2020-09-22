@@ -1,0 +1,15 @@
+// Variable overrides
+// 
+// Need to be loaded first, see https://bulma.io/documentation/customize/variables/
+@import "_variables";           // Overrides for Bulma variables
+
+// Bulma
+@import "bulma-0.9.0/bulma.sass";  // Bulma scss
+
+// Theme scss
+//
+// Ordered according to the order of the html elements
+@import "_navbar";            // navbar style
+@import "_hero";              // hero header blocks
+@import "_features";          // features
+@import "_misc";              // various other styles

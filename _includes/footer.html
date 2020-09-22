@@ -1,0 +1,65 @@
+<footer class="footer">
+  <div>
+    <div class="footer-groups">
+      {% for col in site.data.footer.columns %}
+      <div class="footer-column">
+        <p class="footer-column-name">{{ col.name }}</p>
+        {% if col.description %}
+        <div class="footer-description">
+          {{ col.description | markdownify }}
+        </div>
+        {% endif %}
+        {% if col.links %}
+        <ul class="footer-links">
+          {% for item in col.links %}
+          <li>
+            <a href="{{ item.href | relative_url}}">{{ item.text }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        
+        {% if col.connectIcons %}
+        <ul class="footer-online-list">
+          {% if site.twitter_username %}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.github_username %}
+          <li>
+            <a href="https://github.com/{{ site.github_username }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="footer-footer">
+      {% if site.author %}
+      <div>© {{ site.author }}</div>
+      {% endif %}
+      
+      {% if site.data.footer.license %}
+      <div>{{ site.data.footer.license | markdownify }}</div>
+      {% endif %}
+      
+      <div>Powered by <a href="https://www.gbif.org">GBIF</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ '/assets/theme/js/script.js' | relative_url }}"></script>

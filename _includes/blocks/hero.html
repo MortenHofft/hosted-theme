@@ -1,0 +1,14 @@
+<div class="hero {% if include.parallax %} parallax {% endif %} {% if include.fullHeight %} full-height {% else %} not-full-height {% endif %} overlay" 
+    style="background-image:url('{{include.url}}');">
+  <div class="hero_content">
+    <div class="hero_preTitle">Euismod tincidunt</div>
+    <h2 class="hero_title">
+      {{ page.title }}
+    </h2>
+    <div class="hero_postTitle">{{include.description}}</div>
+    <div class="hero_cta">
+      <a class="button" href="/data">Explore</a>
+      <a class="button" href="/about" >About</a>
+    </div>
+  </div>
+</div>

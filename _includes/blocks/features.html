@@ -1,0 +1,9 @@
+<section class="card-area">
+  <div class="features has-{{include.features.size}}-elements">
+    {% for feature in include.features %}
+    <article class="feature">
+      {% include blocks/featureContent.html content=feature %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,60 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="{{ site.logo | relative_url }}" height="28" />
+    </a>
+
+    {% if site.data.navigation %}
+      <a
+        role="button"
+        id="navbarBurger"
+        class="navbar-burger burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    {% endif %}
+  </div>
+
+  {% if site.data.navigation %}
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      {% for item in site.data.navigation %}
+        {% if item.menu %}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"> {{ item.text }} </a>
+
+          <div class="navbar-dropdown">
+            {% for subitem in item.menu %}
+              {% if subitem.href %}
+                <a
+                  href="{{ subitem.href | relative_url }}"
+                  class="navbar-item {% if subitem.href == page.url %} active{% endif %}"
+                >
+                  {{ subitem.text }}
+                </a>
+              {% elsif subitem.text contains '---' %}
+                <hr class="navbar-divider" />
+              {% else %}
+                <h6 class="has-text-grey navbar-item">{{ subitem.text }}</h6>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% else %}
+          <a
+            class="navbar-item"
+            href="{{ item.href | relative_url }}"
+          >
+          {{ item.text }}
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</nav>
