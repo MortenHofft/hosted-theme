@@ -2,6 +2,14 @@ $card-width: 360px !default
 $card-gap: 12px !default
 $card-double-size: ($card-width * 2 + $card-gap * 2)
 
+.feature-overlay
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+.feature-text
+  position: relative
 .feature-img
   background-position: center
   background-repeat: no-repeat
@@ -19,13 +27,19 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
   left: 0
   right: 0
   display: flex
+  flex-wrap: wrap
   opacity: 0.5
   font-size: 12px
   color: white
+  a
+    color: inherit
+    text-decoration: underline
+  .feature-img-license-c
+    text-shadow: 0 0 3px #000000
   .feature-img-license-text
     display: none
   >div
-    flex: 0 0 auto
+    line-height: 1em
     padding: 3px
 .feature-content
   @extend .content
@@ -37,6 +51,8 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
   font-size: 90%
 .feature-cta
   margin-top: 2rem
+.feature-categories
+  margin-top: 1em
 
 .card-area
   background: #edf3f3
@@ -44,6 +60,7 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
 .features
   @extend .container
   @extend .is-fluid
+  border-bottom: 1px solid #00000014
   display: flex
   flex-wrap: wrap
   justify-content: center
@@ -78,7 +95,7 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
     flex: 0 0 50%
 
 .features
-  .feature:nth-child(odd):last-of-type
+  .feature:nth-child(odd):last-of-type:not(:nth-child(3n))
     @extend .feature--double-width
 
 .features.has-4-elements, .features.has-2-elements
@@ -101,6 +118,7 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
   display: flex
   max-width: 2000px
   margin: auto
+  border-bottom: 1px solid #00000014
   >div
     flex: 0 0 50%
   .feature-content
@@ -119,8 +137,22 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
     .feature-img
       display: none
 
+.product
+  @extend .splitBanner
+  .feature-img
+    background-size: contain
+    background-color: #edf3f3
+  &--align-bottom .feature-img
+    background-position: bottom
+  &--align-left .feature-img
+    background-position: left
+  &--align-right .feature-img
+    background-position: right
+  &--align-top .feature-img
+    background-position: top
 
 .textBanner
+  border-bottom: 1px solid #00000014
   >div
     max-width: 45rem
     padding: 5rem 1rem

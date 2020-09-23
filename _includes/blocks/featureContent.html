@@ -1,30 +1,56 @@
-{% if include.content.img %}
-<div class="feature-img" style="background-image: url('{{ include.content.img }}')">
-  {% if include.content.imageLicense %}
+{% assign preTitle = include.preTitle | default: include.content.preTitle %}
+{% assign title = include.title | default: include.content.title %}
+{% assign description = include.description | default: include.content.description %}
+{% assign background = include.background | default: include.content.background %}
+{% assign imageLicense = include.imageLicense | default: include.content.imageLicense %}
+{% assign cta = include.cta | default: include.content.cta %}
+{% assign center = include.center | default: include.content.center %}
+{% assign categories = include.categories | default: include.content.categories %}
+{% assign url = include.url | default: include.content.url %}
+
+{% if background %}
+<div class="feature-img" style="background-image: url('{{ background }}')">
+  {% if url %}<a href="{{ url }}" class="feature-overlay"></a>{% endif %}
+  {% if imageLicense %}
   <div class="feature-img-license">
-     <div>© </div>
-     <div class="feature-img-license-text">{{ include.content.imageLicense | markdownify }}</div>
+     <div class="feature-img-license-c">© </div>
+     <div class="feature-img-license-text">{{ imageLicense | markdownify }}</div>
   </div>
   {% endif %}
 </div>
 {% endif %}
-<div class="feature-content {% if include.content.center %} feature-content--centered {% endif %}">
-  {% if include.content.preTitle %}
-  <div class="feature-pre-title">{{ include.content.preTitle }}</div>
-  {% endif %}
-  {% if include.content.title %}
-  <h3  class="feature-title">{{ include.content.title }}</h3>
-  {% endif %}
-  {% if include.content.description %}
+<div class="feature-content {% if center %} feature-content--centered {% endif %}">
+  <div class="feature-text">
+    {% if url %}<a href="{{ url }}" class="feature-overlay"></a>{% endif %}
+    {% if preTitle %}
+    <div class="feature-pre-title">{{ preTitle }}</div>
+    {% endif %}
+
+    {% if title %}
+    <h3  class="feature-title">{{ title }}</h3>
+    {% endif %}
+  </div>
+  
+  {% if description %}
   <div class="feature-description">
-    {{ include.content.description | markdownify }}
+    {{ description | markdownify }}
   </div>
   {% endif %}
-  {% if include.content.cta %}
+
+  {% if cta %}
   <div class="feature-cta">
-    {% for cta in include.content.cta %}
+    {% for cta in cta %}
     <a href="{{ cta.href | relative_url }}" class="button is-outlined">{{ cta.text }}</a>
     {% endfor %}
   </div>
   {% endif %}
+
+  {% if categories %}
+  <div class="feature-categories tags">
+    {% for category in categories %}
+      <a class="tag is-light" href="{{ site.archive_permalink | relative_url }}?category={{ category | strip | url_encode }}">{{ category }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
 </div>

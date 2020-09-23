@@ -63,3 +63,49 @@
 </footer>
 
 <script src="{{ '/assets/theme/js/script.js' | relative_url }}"></script>
+
+{% if page.layout == 'archive' %}
+<script>
+  // Filter cards on ?category=value
+  const urlParams = new URLSearchParams(window.location.search);
+    
+  if (urlParams.has("category") && urlParams.get("category") != "") {
+    var category = urlParams.get("category"); // Will return 1st category value + decode URI
+    
+    // filter features
+    var features = document.querySelectorAll('.feature');
+    features.forEach(function(feature){
+      var cardCategories = feature.attributes['data-categories'].value.split('|').map(function(x){return x.trim();});
+      // Hide card if it does not contain the selected category
+      if (!cardCategories.includes(category)) {
+        feature.style.display = 'none';
+      }
+    });
+
+    //show filter in top
+    var filterElement = document.getElementById('archive-filter');
+    if (filterElement) {
+      filterElement.innerHTML = '<div class="tags has-addons">' + 
+        '<a href="{{ site.archive_permalink | relative_url }}" class="tag is-medium">' + category + '</a>' + 
+        '<a href="{{ site.archive_permalink | relative_url }}" class="tag is-medium is-delete"></a>' +
+      '</div>'
+    }
+
+/*
+    $(".card").each(function() {
+      const cardCategories = $(this).data("categories").split("|");
+      // Hide card if it does not contain the selected category
+      if (!cardCategories.includes(cleanCategory)) {
+        $(this).parent().addClass("d-none");
+      }
+    });
+
+    $(".jumbotron .categories").append(
+      '<a class="badge badge-pill" href="{{ site.archive_permalink | relative_url }}">' + 
+      category + '<span class="close">&times;</span>' + 
+      '</a>'
+    );*/
+    
+  }
+</script>
+{% endif %}

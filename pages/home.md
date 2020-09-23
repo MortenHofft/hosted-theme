@@ -3,10 +3,20 @@ layout: home
 title: Lorem ipsum dolor sit amet
 description: Lesser saw seas own have can’t kind Also to every own yielding there stars one itself lights seed yielding dominion lesser from lesser were divide be their spirit one behold a they’re grass called open.
 background: /assets/img/chuttersnap-146799-unsplash.jpg
+fullHeightx: true
 permalink: /
-test:
-  title: The Catalogue of Life
-  desc: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing.
+structure:
+  - type: hero
+  - data: home.features
+    type: features
+  - data: home.bannerExample2
+    type: textBanner
+  - data: home.productExample
+    type: product
+  - data: home.bannerExample2
+    type: textBanner
+  - data: home.splitExample
+    type: splitBanner
 ---
 
 This is a demo website for [Petridish](https://github.com/peterdesmet/petridish): a Jekyll theme for research project websites.

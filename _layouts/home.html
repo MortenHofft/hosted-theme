@@ -2,12 +2,23 @@
 layout: base
 description: Template for homepage
 remark: See also page.layout == 'home' in head.html and jumbotron.html
+structure:
+  - type: hero
+  - data: home.features
+    type: features
+  - data: home.bannerExample1
+    type: splitBanner
+  - data: home.bannerExample2
+    type: textBanner
 ---
 
+{% assign structure = page.structure | default: layout.structure %}
+{% include structure.html structure=structure %}
+{% comment %}
 {% include blocks/hero.html
-url="https://cifras.biodiversidad.co/img/grillo-min.jpg"
-description=page.description title=page.title description=page.description
-parallax=page.parallax fullHeight=page.fullHeight %}
+  content=page
+  description="some textual *description*"
+  parallax=true %}
 
 {% include blocks/features.html features=site.data.home.features %}
 
@@ -15,7 +26,7 @@ parallax=page.parallax fullHeight=page.fullHeight %}
 
 {% include blocks/textBanner.html content=site.data.home.bannerExample2 %}
 
-
+{% endcomment %}
 
 {% assign twitter_feed = false %} {% if site.tweets_on_home and
 site.twitter_username %} {% assign twitter_feed = true %} {% endif %}

@@ -12,10 +12,16 @@ remarks: See also page.layout == 'archive' in footer.html
   </div>
 </div>
 
-<div class="row cards">
-  {% for post in site.posts %}
-  <div class="col-md-6 col-lg-4">
-    {% include card.html %}
+<section class="card-area">
+  <div id="archive-filter" class="archive-filter"></div>
+  <div class="features has-{{site.posts.size}}-elements">
+    {% for post in site.posts %}
+    <article class="feature" data-categories="{% for category in post.categories %}{{ category | strip }}|{% endfor %}">
+    {% assign description = post.excerpt | truncatewords: 20  %}
+    {% assign date = post.date | date: "%B %d, %Y"  %}
+    {% assign url = post.url | relative_url  %}
+      {% include blocks/featureContent.html content=post description=description preTitle=date url=url %}
+    </article>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
+</section>
