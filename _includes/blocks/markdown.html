@@ -2,6 +2,7 @@
 {% assign mobileToc = page.mobileToc %}
 {% assign html = include.html %}
 
+{% if html %}
 <div class="container">
   {% if page.toc %}
   <div class="article article--toc">
@@ -20,3 +21,4 @@
     </div>
   {% endif %}
 </div>
+{% endif %}

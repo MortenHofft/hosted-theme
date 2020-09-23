@@ -54,18 +54,27 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
 .feature-categories
   margin-top: 1em
 
-.card-area
-  background: #edf3f3
-
 .features
+  background: #edf3f3
+  padding-top: 3rem
+  padding-bottom: 3rem
+.features-intro
+  text-align: center
+  max-width: 45rem
+  margin: 0 auto
+  font-size: 120%
+  padding-bottom: 3rem
+.feature-cards
   @extend .container
   @extend .is-fluid
-  border-bottom: 1px solid #00000014
   display: flex
   flex-wrap: wrap
   justify-content: center
-  padding: 48px 0
-  margin: auto
+  margin: -($card-gap) auto
+
+section
+  &.features, &.splitBanner, &.textBanner
+    border-bottom: 1px solid #00000014
 
 .feature
   flex: 0 0 $card-width
@@ -94,11 +103,11 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
   >div
     flex: 0 0 50%
 
-.features
+.feature-cards
   .feature:nth-child(odd):last-of-type:not(:nth-child(3n))
     @extend .feature--double-width
 
-.features.has-4-elements, .features.has-2-elements
+.feature-cards.has-4-elements, .feature-cards.has-2-elements
   .feature:nth-child(1), .feature:nth-child(4)
     @extend .feature--double-width
 
@@ -118,7 +127,6 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
   display: flex
   max-width: 2000px
   margin: auto
-  border-bottom: 1px solid #00000014
   >div
     flex: 0 0 50%
   .feature-content
@@ -139,6 +147,8 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
 
 .product
   @extend .splitBanner
+  .feature-content
+    border-left: 1px solid #00000014
   .feature-img
     background-size: contain
     background-color: #edf3f3
@@ -152,7 +162,6 @@ $card-double-size: ($card-width * 2 + $card-gap * 2)
     background-position: top
 
 .textBanner
-  border-bottom: 1px solid #00000014
   >div
     max-width: 45rem
     padding: 5rem 1rem

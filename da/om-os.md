@@ -1,16 +1,16 @@
 ---
 layout: article
-title: Antaeo Nereis mollibat nocebant nunc amantem longi
+title: Om os
 description: Lorem markdownum spatium limes indefessus neque at orat aestuat
-permalink: /about
-lang-ref: about
 background: "https://api.gbif.org/v1/image/unsafe/1400x1400/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5qktTSY8efC9qaOfGvfQAM%2F6f91b3706d34c147a14ca72eeebd8de5%2FAnemonastrum_richardsonii.jpg"
 parallax: true
 toc: false
 mobileToc: false
+lang-ref: about
+lang: da
 ---
 
-## Procris quippe mentior urbes ubi
+## Dansk tekst
 
 Lorem markdownum spatium limes indefessus neque *at* orat aestuat, quicquam ne
 flavusque omnibus, virginis socerque sparsos vidimus eundem. Sustinet **ramo

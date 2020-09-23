@@ -3,18 +3,9 @@ layout: base
 description: Template for a list of posts, with full width
 remarks: See also page.layout == 'archive' in footer.html
 ---
-
-<div class="row">
-  <div class="col">
-
-    {{ content }}
-  
-  </div>
-</div>
-
-<section class="card-area">
-  <div id="archive-filter" class="archive-filter"></div>
-  <div class="features has-{{site.posts.size}}-elements">
+<div id="archive-filter" class="archive-filter"></div>
+<div class="features">
+  <div class="feature-cards has-{{site.posts.size}}-elements">
     {% for post in site.posts %}
     <article class="feature" data-categories="{% for category in post.categories %}{{ category | strip }}|{% endfor %}">
     {% assign description = post.excerpt | truncatewords: 20  %}
@@ -24,4 +15,4 @@ remarks: See also page.layout == 'archive' in footer.html
     </article>
     {% endfor %}
   </div>
-</section>
+</div>

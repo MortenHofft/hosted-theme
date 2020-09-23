@@ -2,7 +2,8 @@
 layout: archive
 title: News
 description: News & blog posts
-permalink: /blog/
+permalink: /news/
 ---
-
-<!-- Content here would shop up above your list of posts -->
+{% comment %}
+  Content here would shop up above your list of posts
+{% endcomment %}

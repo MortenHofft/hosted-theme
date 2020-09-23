@@ -1,7 +1,7 @@
 # Links listed below will be included in your site's navbar (navigation at the top)
 
-- text: About
-  href: /about/
+- text: Om os
+  href: /om-os/
 - text: Data
   href: /data/
 - text: Activities

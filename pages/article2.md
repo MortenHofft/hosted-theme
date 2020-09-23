@@ -2,12 +2,8 @@
 layout: article
 title: Three georeferencing documents released for GBIF community review
 description: Towards developing a theme for research project websites
-background: /assets/img/chuttersnap-146799-unsplash.jpg
 permalink: /article2
-test:
-  title: The Catalogue of Life
-  desc: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing.
-imageSrc: "https://api.gbif.org/v1/image/unsafe/1400x500/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2Flhx19IhRKszlMsuUQgKPl%2F16c135ca87a37a46b4915e7cad48d80c%2Foriginal.jpeg"
+background: "https://api.gbif.org/v1/image/unsafe/1400x500/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2Flhx19IhRKszlMsuUQgKPl%2F16c135ca87a37a46b4915e7cad48d80c%2Foriginal.jpeg"
 parallax: false
 toc: true
 ---

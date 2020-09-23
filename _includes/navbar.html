@@ -1,10 +1,12 @@
+{% assign navigation = site.data[page.lang].navigation | default: site.data.navigation %}
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="{{ site.logo | relative_url }}" height="28" />
     </a>
 
-    {% if site.data.navigation %}
+    {% if navigation %}
       <a
         role="button"
         id="navbarBurger"
@@ -20,10 +22,10 @@
     {% endif %}
   </div>
 
-  {% if site.data.navigation %}
+  {% if navigation %}
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      {% for item in site.data.navigation %}
+      {% for item in navigation %}
         {% if item.menu %}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link"> {{ item.text }} </a>

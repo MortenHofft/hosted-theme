@@ -7,10 +7,8 @@ fullHeightx: true
 permalink: /
 structure:
   - type: hero
-  - data: home.features
+  - data: home.cardExample
     type: features
-  - data: home.bannerExample2
-    type: textBanner
   - data: home.productExample
     type: product
   - data: home.bannerExample2
