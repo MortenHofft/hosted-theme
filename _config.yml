@@ -42,7 +42,7 @@ exclude:
 defaults:
   -
     scope:
-      path: ""
+      path: "en"
     values:
       lang: en
   -

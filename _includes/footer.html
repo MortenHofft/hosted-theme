@@ -1,5 +1,27 @@
 <footer class="footer">
   <div>
+    {% if page.layout != 'index' and page.lang-ref%}
+      {% assign posts = site.posts | where: "lang-ref", page.lang-ref | sort: 'lang' %}
+      {% if posts.size == 0 %}
+          {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+      {% endif %}
+      {% if posts.size > 1 %}
+      <div class="lang-options">
+          <em>{{ site.data.translations['differentLanguage'][page.lang] }}:</em>
+          <ul>
+          {% for post in posts %}
+          <li>
+            <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">
+              {{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}
+            </a>
+          </li>
+          {% endfor %}
+          </ul>
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div>
     <div class="footer-groups">
       {% for col in site.data.footer.columns %}
       <div class="footer-column">
@@ -60,28 +82,6 @@
       <div>Powered by <a href="https://www.gbif.org">GBIF</a></div>
     </div>
   </div>
-
-  {% if page.layout != 'index' and page.lang-ref%}
-    {% assign posts = site.posts | where: "lang-ref", page.lang-ref | sort: 'lang' %}
-    {% if posts.size == 0 %}
-        {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
-    {% endif %}
-    {% if posts.size > 1 %}
-    <div class="lang-options">
-        <em>{{ site.data.translations['differentLanguage'][page.lang] }}:</em>
-        <ul>
-        {% for post in posts %}
-        <li>
-          <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">
-            {{ site.data.languages[post.lang].icon }} {{ site.data.languages[post.lang].label }}
-          </a>
-        </li>
-        {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-  {% endif %}
-
 </footer>
 
 <script src="{{ '/assets/theme/js/script.js' | relative_url }}"></script>

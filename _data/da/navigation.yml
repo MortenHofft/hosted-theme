@@ -1,7 +1,7 @@
 # Links listed below will be included in your site's navbar (navigation at the top)
 
 - text: Om os
-  href: /om-os/
+  href: /da/om-os/
 - text: Data
   href: /data/
 - text: Activities
@@ -14,5 +14,5 @@
   - text: "Tools" # Title for block of menu items
   - text: Report findings
     href: https://www.inaturalist.org/
-- text: News
-  href: /news/
+- text: Nyheder
+  href: /nyheder/

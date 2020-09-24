@@ -37,6 +37,14 @@ $custom_rounded: "{{ site.rounded_corners }}";
   $enable-rounded: false;
 }
 
+{% if site.coloredHeadlineLinks == "false" %}
+h1, h2, h3, h4, h5, h6 {
+  a {
+    color: inherit;
+  }
+}
+{% endif %}
+
 
 // Variable overrides
 // 

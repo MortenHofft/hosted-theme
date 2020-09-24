@@ -2,7 +2,8 @@
 layout: archive
 title: News
 description: News & blog posts
-permalink: /news/
+permalink: /nyheder/
+lang: da
 lang-ref: news
 ---
 {% comment %}

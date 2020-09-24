@@ -16,3 +16,11 @@
   @extend .menu-label 
 .toc ul
   @extend .menu-list
+
++until($navbar-breakpoint)
+  .navbar-end
+    border-top: 1px solid #eee
+    a
+      display: inline-block
+    .button
+      display: none
